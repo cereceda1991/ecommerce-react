@@ -1,0 +1,104 @@
+.login-user{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-btn{
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    background: var(--primary);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    transition: 0.3s ease;
+}
+.login-btn:active:hover{
+    transform: scale(0.9);
+}
+
+
+.login-container{
+    background: rgb(184 183 183 / 10%);
+    margin-bottom: 30px;
+}
+
+.login-container .main-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 68vh;
+}
+
+.login{
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    padding: 25px;
+    background: #fff;
+}
+
+.login strong{
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    display: block;
+    font-weight: 500;
+    line-height: 1.6;
+}
+.login .test-data{
+    background: #d8f5fd;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+.login .test-data b{
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.login .test-data .field{
+    margin-bottom: 6px;
+}
+
+.login .test-data .field i{
+    margin-right: 13px;
+    font-size: 1.2rem;
+}
+.login .input-container{
+    margin-bottom: 20px;
+}
+
+.login .input-container input{
+    display: block;
+    width: 100%;
+    padding: 6px 8px;
+    margin-top: 4px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 3px;
+}
+.login .submit-button{
+    background: var(--primary);
+    width: 100%;
+    padding: 9px;
+    color: #fff;
+    margin: 10px 0 25px;
+}
+.sing-up {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.up-btn {
+    background-color: transparent;
+    font-size: inherit;
+    color: #1799f0;
+    font-weight: 600;
+}
