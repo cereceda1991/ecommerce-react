@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import CartProduct from './../components/Cart/CartProduct';
-import { getUserCart } from './../store/slices/cart.slice';
-import './styles/cart.css';
-import getToken from './../utils/getConfig';
+import CartProduct from '../components/Cart/CartProduct';
+import { getUserCart } from '../store/slices/cart.slice';
+import './styles/CartPage.css';
+import getToken from '../utils/getConfig';
 import carrito from '../assets/carrito.png'
 
-const Cart = () => {
+const CartPage = () => {
   const dispatch = useDispatch();
 
   const cartProducts = useSelector((state) => state.cart.products);
@@ -65,4 +65,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartPage;

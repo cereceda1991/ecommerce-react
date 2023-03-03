@@ -1,7 +1,6 @@
 .sign__up-container {
     display: grid;
-    margin-top: 3rem;
-    padding: 2rem;
+    padding-top: 4rem;
     flex-direction: column;
     justify-content: center;
     width: 100%;

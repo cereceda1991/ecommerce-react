@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import './styles/signUp.css'
+import './styles/SignUpPage.css'
 
 const SignUp = () => {
 

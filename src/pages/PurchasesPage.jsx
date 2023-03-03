@@ -1,12 +1,10 @@
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import PurchaseCard from '../components/Purchases/PurchaseCard';
-import './styles/purchases.css'
-import getToken from './../utils/getConfig';
+import './styles/PurchasesPage.css'
+import getToken from '../utils/getConfig';
 
-const Purchases = () => {
+const PurchasesPage = () => {
 
     const [purchasesList, setPurchasesList] = useState()
 
@@ -45,4 +43,4 @@ const Purchases = () => {
     )
 }
 
-export default Purchases;
+export default PurchasesPage;

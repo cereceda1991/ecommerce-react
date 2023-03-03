@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './styles/login.css';
-import getConfig from '../utils/getConfig';
+import './styles/LoginPage.css';
 
-const Login = () => {
+const LoginPage = () => {
   const [token, setToken] = useState()
   const [isLogged, setIsLogged] = useState(false);
 
@@ -87,4 +86,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

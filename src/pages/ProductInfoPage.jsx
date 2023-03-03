@@ -5,9 +5,9 @@ import ProductDescription from '../components/ProductInfo/ProductDescription';
 import { useSelector } from 'react-redux';
 import CardProduct from '../components/Home/CardProduct/CardProduct';
 import SliderImg from '../components/ProductInfo/SliderImg';
-import './styles/productInfo.css'
+import './styles/ProductInfoPage.css'
 
-const ProductInfo = () => {
+const ProductInfoPage = () => {
   const { id } = useParams();
 
   const [product, setProduct] = useState();
@@ -55,4 +55,4 @@ const ProductInfo = () => {
   );
 };
 
-export default ProductInfo;
+export default ProductInfoPage;

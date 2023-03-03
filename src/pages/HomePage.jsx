@@ -6,10 +6,10 @@ import FilterPrice from '../components/Home/Filters/FilterPrice';
 import ToOrderProducts from '../components/Home/Filters/ToOrderProducts';
 import ToOrderProductsByName from '../components/Home/Filters/ToOrderProductsByName';
 import caja from '../assets/caja_vacia.png'
+import './styles/HomePage.css';
 
-import './styles/home.css';
 
-const Home = () => {
+const HomePage = () => {
   const [productsFilter, setProductsFilter] = useState();
   const [inputValue, setInputValue] = useState('');
   const [showFilters1, setShowFilters1] = useState(false);
@@ -103,4 +103,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
