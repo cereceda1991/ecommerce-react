@@ -42,7 +42,6 @@ const FilterCategory = ({ setInputValue }) => {
 
   return (
     <div>
-      <h4>Categories</h4>
       <select value={selectedCategory} onChange={handleSelectChange}>
         <option value="">All Products</option>
         {categories?.map((category) => (

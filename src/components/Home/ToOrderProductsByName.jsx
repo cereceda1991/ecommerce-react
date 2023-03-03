@@ -19,8 +19,8 @@ const ToOrderProductsByName = () => {
   return (
 
     <select className='order-name' onChange={handleChange}>
-      <option value='ascending'>Ascending By Name</option>
-      <option value='descending'>Descending By Name</option>
+      <option value='ascending'>A-Z</option>
+      <option value='descending'>Z-A</option>
     </select>
 
   );

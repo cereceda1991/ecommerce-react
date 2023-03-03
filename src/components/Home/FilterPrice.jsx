@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles/filterPrice.css'
 
 const FilterPrice = ({ setInputPrice }) => {
   const [sliderValueFrom, setSliderValueFrom] = useState(0);
@@ -41,7 +42,7 @@ const FilterPrice = ({ setInputPrice }) => {
           type='range'
           id='from'
           min='0'
-          max='5000'
+          max='10000'
           step='1'
           value={sliderValueFrom}
           className='slider'
@@ -56,7 +57,7 @@ const FilterPrice = ({ setInputPrice }) => {
           type='range'
           id='to'
           min='0'
-          max='5000'
+          max='10000'
           step='1'
           value={sliderValueTo}
           className='slider'
