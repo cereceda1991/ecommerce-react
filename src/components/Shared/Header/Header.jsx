@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './header.css';
@@ -6,6 +6,8 @@ import { getUserCart } from '../../../store/slices/cart.slice';
 
 
 const Header = () => {
+
+  const userName = localStorage.getItem('name');
 
   const products = useSelector(state => state.cart.products);
   const dispatch = useDispatch();
@@ -15,10 +17,10 @@ const Header = () => {
 
 
   useEffect(() => {
-    dispatch(getUserCart());
-  }, [dispatch]);
-
-  console.log(products);
+    if (userName) {
+      dispatch(getUserCart());
+    }
+  }, [dispatch, userName, products]);
 
   return (
     <header className='container__header'>
@@ -40,7 +42,9 @@ const Header = () => {
           <li className='container__carticon'>
             <Link to="/cart">
               <i className="fa-solid fa-cart-shopping icon__cart"></i>
-              <h5 className='quantity__purchase'>{totalQuantity}</h5>
+              {totalQuantity > 0 && localStorage.getItem('name') &&
+                <h5 className='quantity__purchase'>{totalQuantity}</h5>
+              }
             </Link>
           </li>
         </ul>

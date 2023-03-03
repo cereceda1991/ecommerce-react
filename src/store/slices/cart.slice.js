@@ -23,7 +23,7 @@ export const getUserCart = () => (dispatch) => {
         .get(url, getToken())
         .then((res) => {
             dispatch(setCartGlobal(res.data),
-                console.log(res.data))
+            )
         })
         .catch((err) => {
             dispatch(setCartGlobal(null))
