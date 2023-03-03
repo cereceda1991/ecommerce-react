@@ -26,11 +26,11 @@ const Cart = () => {
     const url = 'https://e-commerce-api-v2.academlo.tech/api/v1/purchases';
 
     const data = {
-      street: 'Green St. 1456',
-      colony: 'Southwest',
-      zipCode: 12345,
-      city: 'USA',
-      references: 'Some references',
+      street: '',
+      colony: '',
+      zipCode: '',
+      city: '',
+      references: '',
     };
     axios
       .post(url, data, getToken())
