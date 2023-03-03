@@ -16,7 +16,6 @@ const ProductInfo = () => {
   const allProducts = useSelector((state) => state.products);
 
   useEffect(() => {
-
     const url = `https://e-commerce-api-v2.academlo.tech/api/v1/products/${id}`;
     axios
       .get(url)
@@ -27,22 +26,24 @@ const ProductInfo = () => {
   useEffect(() => {
     if (allProducts && product) {
       const pivot = allProducts.filter(
-        (prod) => prod.category.name === product.category
+        (prod) => prod.category.name === product.category.name
       );
       setSimilarProducts(pivot);
     }
   }, [allProducts, product]);
 
+  console.log(allProducts);
+  console.log(product);
 
   return (
-    <div className='product-info-main'>
-      <div className="product-info-container">
+    <div className='container__product-info'>
+      <div className='container__slide-prod'>
         <SliderImg listImgs={product?.images} />
         <ProductDescription product={product} />
       </div>
-      <section className='product-similar'>
-        <h2 className='product-similar-title'>Discover Similar Items</h2>
-        <div className="similar-product-container">
+      <section>
+        <h2>Discover Similar Items</h2>
+        <div className='similar__products'>
           {similarProducts?.map((simProd) => {
             if (simProd.title !== product.title) {
               return <CardProduct key={simProd.id} product={simProd} />;

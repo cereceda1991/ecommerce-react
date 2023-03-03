@@ -1,7 +1,7 @@
 .product {
     width: 100%;
     max-width: 280px;
-    height: 380px;
+    height: 410px;
     border: 1px solid #aaa6;
     border-radius: .2rem;
     cursor: pointer;
@@ -50,6 +50,12 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+}
+
+.product__brand {
+    text-transform: uppercase;
+    color: #aaa;
+    padding: 0;
 }
 
 .product__name {

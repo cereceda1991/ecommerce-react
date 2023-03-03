@@ -51,8 +51,9 @@ const ProductDescription = ({ product }) => {
     <article className='container__prodDescription'>
       <h3> {product?.brand} {product?.title}</h3>
       <p>{product?.description}</p>
-      <span><b>Price: </b>${product?.price}</span>
       <div className='container__quantity'>
+        <h4>$ {product?.price}</h4>
+
         <button onClick={handleMinus}><i className="fa-solid fa-minus" /></button>
         <h4> {counter} </h4>
         <button onClick={handlePlus}><i className="fa-solid fa-plus" /></button>

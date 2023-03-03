@@ -40,27 +40,15 @@ const Home = () => {
 
   return (
     <div className='home__container'>
-      <div className='filter__products'>
-        <article>
-          <h4>Filter By </h4>
-          <FilterPrice setInputPrice={setInputPrice} />
-          <FilterCategory setInputValue={setInputValue} />
-        </article>
-        <article>
-          <div >
-            <h4>Order By </h4>
-          </div>
-          <div>
-            <div >
-              <h4>Price</h4>
-              <ToOrderProducts />
-            </div>
-            <div >
-              <h4>Name</h4>
-              <ToOrderProductsByName />
-            </div>
-          </div>
-        </article>
+      <div className='filter__prod'>
+        <h4>Filter By </h4>
+        <FilterPrice setInputPrice={setInputPrice} />
+        <FilterCategory setInputValue={setInputValue} />
+        <h4>Order By </h4>
+        <h4>Price</h4>
+        <ToOrderProducts />
+        <h4>Name</h4>
+        <ToOrderProductsByName />
       </div>
       <div className='filter__products-results'>
         <input

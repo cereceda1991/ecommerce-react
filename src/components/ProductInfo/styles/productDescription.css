@@ -3,7 +3,6 @@
     flex-direction: column;
     min-height: 100vh;
     padding: 1rem;
-    width: 40%;
 }
 
 .container__prodDescription p {
@@ -15,17 +14,13 @@
     margin-bottom: .5rem;
 }
 
-.container__prodDescription span {
-    padding-top: 2rem;
-    text-align: end;
-    font-size: 1.2rem;
-}
-
 .container__quantity {
     display: flex;
     justify-content: space-evenly;
     padding: 1rem;
     margin: 2rem 4rem;
+    gap: 2rem;
+    align-items: center;
 }
 
 .container__quantity button {

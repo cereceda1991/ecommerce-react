@@ -41,7 +41,7 @@ const FilterCategory = ({ setInputValue }) => {
   };
 
   return (
-    <section >
+    <div>
       <h4>Categories</h4>
       <select value={selectedCategory} onChange={handleSelectChange}>
         <option value="">All Products</option>
@@ -51,7 +51,7 @@ const FilterCategory = ({ setInputValue }) => {
           </option>
         ))}
       </select>
-    </section>
+    </div>
   );
 };
 

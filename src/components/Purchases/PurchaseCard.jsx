@@ -1,31 +1,36 @@
 import React from 'react';
 import './styles/purchaseCard.css';
 
-const PurchaseCard = ({ purchase, purchasesList }) => {
-  const datePurchase = new Date(purchase.createdAt);
+const PurchaseCard = ({ purchase }) => {
+  const datePurchase = new Date(purchase?.createdAt);
   const options = {
-    weekday: 'long',
     year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
   };
 
-  console.log(purchasesList);
+  console.log(purchase);
+
+  const totalCost = purchase.product.price * purchase.quantity;
 
   return (
-    <article className="purchase__article">
-      <h4>{datePurchase.toLocaleDateString('en-us', options)}</h4>
-      <div className='container__purchase-article'>
-        {purchasesList.map((prod) => (
-          <div key={prod.productId}>
-            <h4>{prod.product.title}</h4>
-            <p> Quantity: {prod.quantity}</p>
-            <span> Price:</span> <span className='Price'> {prod.product.price}</span>
-          </div>
-        ))}
-      </div>
-    </article >
+
+    <div className='card__purchases'>
+      <p>{datePurchase.toLocaleDateString('en-us', options)}</p>
+      <p>{purchase.id}</p>
+      <img src={purchase.product.images[2].url} alt='' />
+      <p>{purchase.product.brand} {purchase.product.title}</p>
+      <p> ${purchase.product.price}</p>
+      <p> {purchase.quantity}</p>
+      <p> ${totalCost.toFixed(2)}</p>
+    </div>
+
   );
 };
-
 export default PurchaseCard;
+
+
