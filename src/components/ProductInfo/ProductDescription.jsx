@@ -7,8 +7,6 @@ import getToken from './../../utils/getConfig';
 
 const ProductDescription = ({ product }) => {
 
-
-
   const [counter, setCounter] = useState(1);
 
   const handleMinus = () => {

@@ -22,7 +22,8 @@ export const getUserCart = () => (dispatch) => {
     axios
         .get(url, getToken())
         .then((res) => {
-            dispatch(setCartGlobal(res.data))
+            dispatch(setCartGlobal(res.data),
+                console.log(res.data))
         })
         .catch((err) => {
             dispatch(setCartGlobal(null))

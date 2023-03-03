@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import './header.css';
+import { getUserCart } from '../../../store/slices/cart.slice';
+
 
 const Header = () => {
+
+  const products = useSelector(state => state.cart.products);
+  const dispatch = useDispatch();
+
+  const quantities = products?.map(product => product.quantity);
+  const totalQuantity = quantities?.reduce((total, quantity) => total + quantity, 0);
+
+
+  useEffect(() => {
+    dispatch(getUserCart());
+  }, [dispatch]);
+
+  console.log(products);
+
   return (
     <header className='container__header'>
       <h3>
@@ -12,17 +29,18 @@ const Header = () => {
         <ul >
           <li>
             <Link to="/login">
-              <i className="fa-regular fa-user icon-header"></i>
+              <i className="fa-regular fa-user "></i>
             </Link>
           </li>
           <li >
             <Link to="/purchases">
-              <i className="fa-solid fa-box-archive icon-header"></i>
+              <i className="fa-solid fa-box-archive "></i>
             </Link>
           </li>
-          <li >
+          <li className='container__carticon'>
             <Link to="/cart">
-              <i className="fa-solid fa-cart-shopping icon-header"></i>
+              <i className="fa-solid fa-cart-shopping icon__cart"></i>
+              <h5 className='quantity__purchase'>{totalQuantity}</h5>
             </Link>
           </li>
         </ul>
