@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './styles/login.css';
+import getConfig from '../utils/getConfig';
 
 const Login = () => {
+  const [token, setToken] = useState()
   const [isLogged, setIsLogged] = useState(false);
 
   const { handleSubmit, register, reset } = useForm();
@@ -16,21 +18,25 @@ const Login = () => {
   };
 
   const submit = (data) => {
-    const URL = 'https://e-commerce-api.academlo.tech/api/v1/users/login';
-    axios
-      .post(URL, data)
+    const url = 'https://e-commerce-api-v2.academlo.tech/api/v1/users/login';
+    axios.post(url, data)
       .then((res) => {
-        console.log(res.data.data);
-        localStorage.setItem('token', res.data.data.token);
+        console.log(res.data);
+        setToken(res.data.token)
+        localStorage.setItem('name', `${res.data.user.firstName} ${res.data.user.lastName}`)
+        localStorage.setItem('token', res.data.token)
         setIsLogged(true);
         navigate('/');
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        localStorage.clear()
+      })
     reset({
       email: '',
       password: '',
-    });
-  };
+    })
+  }
 
   useEffect(() => {
     const condition = localStorage.getItem('token') ? true : false;
@@ -44,45 +50,40 @@ const Login = () => {
 
   if (isLogged) {
     return (
-      <div className="login-user">
-        <button className="logout-btn" onClick={handleLogout}>
+      <div className="login__user">
+        <h1><i className='bx bxs-user' /></h1>
+        <h2>{localStorage.getItem('name')}</h2>
+        <button className="logout__btn" onClick={handleLogout}>
           Logout
         </button>
       </div>
     );
   }
   return (
-    <div className="login-container">
-      <div className="main-container">
-        <form className="login" onSubmit={handleSubmit(submit)}>
-          <strong>Welcome! Enter your email and password to continue</strong>
-          <div className="test-data">
-            <b>Test data</b>
-            <div className="field">
-              <i className="fa-regular fa-envelope"></i>username@gmail.com
-            </div>
-            <div className="field">
-              <i className="fa-solid fa-key"></i>password12345
-            </div>
-          </div>
-          <div className="input-container">
-            <label htmlFor="email">Email</label>
-            <input type="text" id="email" {...register('email')} />
-          </div>
-          <div className="input-container">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" {...register('password')} />
-          </div>
-          <button className="submit-button">Login</button>
-          <div className="sing-up">
-            <span>Don't have an account?</span>
-            <button className="up-btn" onClick={handleSignUp}>
-              Sign up
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <div className='container__login'>
+      <form onSubmit={handleSubmit(submit)}>
+        <h1>Welcome! </h1>
+        <p>Enter your email and password to continue</p>
+
+        <span> <i className="fa-regular fa-envelope"></i>
+          <label htmlFor="email">Email</label>
+        </span>
+        <input type="email" id="email" {...register('email')} placeholder='Enter your email' required />
+        <span>
+          <i className="fa-solid fa-key"></i>
+          <label htmlFor="password">Password</label>
+        </span>
+        <input type="password" id="password" {...register('password')} placeholder='Enter your password' required />
+
+        <button className='login__button'>Login</button>
+        <div>
+          <span>Don't have an account?
+            <button className='up__button' onClick={handleSignUp}> Sign up </button>
+          </span>
+        </div>
+      </form >
+    </div >
+
   );
 };
 

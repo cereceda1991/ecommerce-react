@@ -5,7 +5,7 @@ import './App.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import ProductInfo from './pages/ProductInfo';
-import { getAllProducts } from './store/slices/products.slice';
+import { getAllProductsThunk } from './store/slices/products.slice';
 import Header from './components/Shared/Header/Header';
 import Cart from './pages/Cart';
 import Purchases from './pages/Purchases';
@@ -17,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProducts());
+    dispatch(getAllProductsThunk());
 
   }, []);
 

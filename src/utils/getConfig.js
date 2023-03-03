@@ -1,9 +1,10 @@
-const getConfig=()=>(
-    {
-        headers:{
-            Authorization: `Bearer ${localStorage.getItem('token')}`
+const getToken = () => {
+    const token = localStorage.getItem('token');
+    return {
+        headers: {
+            Authorization: `Bearer ${token}`
         }
     }
-)
+}
 
-export default getConfig
+export default getToken;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/purchaseCard.css';
 
-const PurchaseCard = ({ purchase }) => {
+const PurchaseCard = ({ purchase, purchasesList }) => {
   const datePurchase = new Date(purchase.createdAt);
   const options = {
     weekday: 'long',
@@ -9,29 +9,22 @@ const PurchaseCard = ({ purchase }) => {
     month: 'long',
     day: 'numeric',
   };
-  console.log(purchase);
+
+  console.log(purchasesList);
 
   return (
-    <article className="purchase-article">
-      <header className='purchase-header'>
-        <h3 className='purchase-date'>{datePurchase.toLocaleDateString('en-us', options)}</h3>
-        <section className='purchase-container'>
-          <div className='purchase-body'>
-            <ul className='purchase-list'>
-              {purchase.cart.products.map((prod) => (
-                <li className='purchase-item' key={prod.id}>
-                  <h4 className='purchase-prod-title'>{prod.title}</h4>
-                  <div className="purchase-prod-stats">
-                    <span className='purchase-prod-quantity'><span className="purchase-prod-quantity-total">Quantity:</span> {prod.productsInCart.quantity}</span>
-                    <span className='purchase-prod-price'>${prod.price}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
+    <article className="purchase__article">
+      <h4>{datePurchase.toLocaleDateString('en-us', options)}</h4>
+      <div className='container__purchase-article'>
+        {purchasesList.map((prod) => (
+          <div key={prod.productId}>
+            <h4>{prod.product.title}</h4>
+            <p> Quantity: {prod.quantity}</p>
+            <span> Price:</span> <span className='Price'> {prod.product.price}</span>
           </div>
-        </section>
-      </header>
-    </article>
+        ))}
+      </div>
+    </article >
   );
 };
 

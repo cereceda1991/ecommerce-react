@@ -16,10 +16,11 @@ const ProductInfo = () => {
   const allProducts = useSelector((state) => state.products);
 
   useEffect(() => {
-    const URL = `https://e-commerce-api.academlo.tech/api/v1/products/${id}`;
+
+    const url = `https://e-commerce-api-v2.academlo.tech/api/v1/products/${id}`;
     axios
-      .get(URL)
-      .then((res) => setProduct(res.data.data.product))
+      .get(url)
+      .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
   }, [id]);
 
@@ -32,10 +33,11 @@ const ProductInfo = () => {
     }
   }, [allProducts, product]);
 
+
   return (
     <div className='product-info-main'>
       <div className="product-info-container">
-        <SliderImg listImgs={product?.productImgs} />
+        <SliderImg listImgs={product?.images} />
         <ProductDescription product={product} />
       </div>
       <section className='product-similar'>

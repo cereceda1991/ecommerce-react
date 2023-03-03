@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getProductsByCategory } from '../../store/slices/products.slice';
 import { useDispatch } from 'react-redux';
-import { getAllProducts } from './../../store/slices/products.slice';
+import { getAllProductsThunk } from './../../store/slices/products.slice';
 
 const FilterCategory = ({ setInputValue }) => {
   const [categories, setCategories] = useState();
@@ -25,7 +25,7 @@ const FilterCategory = ({ setInputValue }) => {
   };
 
   const handleAllProducts = () => {
-    dispatch(getAllProducts());
+    dispatch(getAllProductsThunk());
     setInputValue("");
   };
 

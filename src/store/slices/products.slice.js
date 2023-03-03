@@ -5,7 +5,7 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: null,
   reducers: {
-    setProductsGlobal: (state, action) => action.payload,
+    setProducts: (state, action) => action.payload,
     ascendingOrderProducts: (state) => {
       state.sort((a, b) => +a.price - +b.price);
     },
@@ -22,7 +22,7 @@ const productsSlice = createSlice({
 });
 
 export const {
-  setProductsGlobal,
+  setProducts,
   ascendingOrderProducts,
   descendingOrderProducts,
   ascendingOrderProductsByName,
@@ -31,18 +31,18 @@ export const {
 
 export default productsSlice.reducer;
 
-export const getAllProducts = () => (dispatch) => {
-  const URL = 'https://e-commerce-api.academlo.tech/api/v1/products';
-  axios
-    .get(URL)
-    .then((res) => dispatch(setProductsGlobal(res.data.data.products)))
+export const getAllProductsThunk = () => (dispatch) => {
+  const url = 'https://e-commerce-api-v2.academlo.tech/api/v1/products';
+  axios.get(url)
+    .then((res) => dispatch(setProducts(res.data)))
     .catch((err) => console.log(err));
 };
 
+
 export const getProductsByCategory = (id) => (dispatch) => {
-  const URL = `https://e-commerce-api.academlo.tech/api/v1/products?category=${id}`;
+  const url = `https://e-commerce-api-v2.academlo.tech/api/v1/products?categoryId=${id}`;
   axios
-    .get(URL)
-    .then((res) => dispatch(setProductsGlobal(res.data.data.products)))
+    .get(url)
+    .then((res) => dispatch(setProducts(res.data)))
     .catch((err) => console.log(err));
 };

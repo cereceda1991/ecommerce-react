@@ -5,6 +5,7 @@ import FilterCategory from '../components/Home/FilterCategory';
 import FilterPrice from '../components/Home/FilterPrice';
 import ToOrderProducts from '../components/Home/ToOrderProducts';
 import ToOrderProductsByName from '../components/Home/ToOrderProductsByName';
+import caja from '../assets/caja_vacia.png'
 
 import './styles/home.css';
 
@@ -35,6 +36,7 @@ const Home = () => {
 
   const filterCallBack = (prod) =>
     +prod.price > inputPrice.from && +prod.price <= inputPrice.to;
+
 
   return (
     <div className='home__container'>
@@ -68,19 +70,19 @@ const Home = () => {
           onChange={handleChange}
           type='text'
         />
-        <div className='products__container'>          {productsFilter?.filter(filterCallBack).length !== 0 ? (
-          productsFilter
-            ?.filter(filterCallBack)
-            .map((product) => (
-              <CardProduct key={product.id} product={product} />
-            ))
-        ) : (
-          <img
-            className='product-not-found'
-            src='https://evgracias.com/images/no-products.jpg'
-            alt=''
-          />
-        )}
+        <div className='products__container'>
+          {productsFilter?.filter(filterCallBack).length !== 0 ? (
+            productsFilter
+              ?.filter(filterCallBack)
+              .map((product) => (
+                <CardProduct key={product.id} product={product} />
+              ))
+          ) : (
+            <div className='error__msg'>
+              <img src={caja} alt='caja_vacia' />
+              <p>Sorry we couldn't find any results for "{inputValue}"</p>
+            </div>
+          )}
         </div>
       </div>
     </div >
