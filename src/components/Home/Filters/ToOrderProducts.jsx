@@ -1,9 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  ascendingOrderProducts,
-  descendingOrderProducts,
-} from '../../store/slices/products.slice';
+import { ascendingOrderProducts, descendingOrderProducts } from '../../../store/slices/products.slice';
 
 const ToOrderProducts = () => {
   const dispatch = useDispatch();

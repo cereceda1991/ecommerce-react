@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import CardProduct from '../components/Home/CardProduct/CardProduct';
-import FilterCategory from '../components/Home/FilterCategory';
-import FilterPrice from '../components/Home/FilterPrice';
-import ToOrderProducts from '../components/Home/ToOrderProducts';
-import ToOrderProductsByName from '../components/Home/ToOrderProductsByName';
+import FilterCategory from '../components/Home/Filters/FilterCategory';
+import FilterPrice from '../components/Home/Filters/FilterPrice';
+import ToOrderProducts from '../components/Home/Filters/ToOrderProducts';
+import ToOrderProductsByName from '../components/Home/Filters/ToOrderProductsByName';
 import caja from '../assets/caja_vacia.png'
 
 import './styles/home.css';
