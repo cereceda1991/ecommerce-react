@@ -12,6 +12,9 @@ import './styles/home.css';
 const Home = () => {
   const [productsFilter, setProductsFilter] = useState();
   const [inputValue, setInputValue] = useState('');
+  const [showFilters1, setShowFilters1] = useState(false);
+  const [showFilters2, setShowFilters2] = useState(false);
+
   const [inputPrice, setInputPrice] = useState({
     from: 0,
     to: Infinity,
@@ -41,14 +44,37 @@ const Home = () => {
   return (
     <div className='home__container'>
       <div className='filter__prod'>
-        <h4>Filter By </h4>
-        <FilterPrice setInputPrice={setInputPrice} />
-        <FilterCategory setInputValue={setInputValue} />
-        <h4>Order By </h4>
-        <h4>Price</h4>
-        <ToOrderProducts />
-        <h4>Name</h4>
-        <ToOrderProductsByName />
+        <div>
+          <div className='filter__prod-title'>
+            <h4>Filter By </h4>
+            <h2> <i className={`bx ${showFilters1 ? 'bxs-chevron-up' : 'bxs-chevron-down'}  button__down`} onClick={() => setShowFilters1(!showFilters1)} /></h2>
+          </div>
+          <hr className='title__hr' />
+          <div className='container__filterorder-products '>
+            {showFilters1 && <>
+              <h4>Price</h4>
+              <FilterPrice setInputPrice={setInputPrice} />
+              <h4>Category</h4>
+              <FilterCategory setInputValue={setInputValue} />
+            </>}
+          </div>
+        </div>
+
+        <div>
+          <div className='filter__prod-title'>
+            <h4>Order By </h4>
+            <h2> <i className={`bx ${showFilters2 ? 'bxs-chevron-up' : 'bxs-chevron-down'}  button__down`} onClick={() => setShowFilters2(!showFilters2)} /></h2>
+          </div>
+          <hr className='title__hr' />
+          <div className='container__filterorder-products '>
+            {showFilters2 && <>
+              <h4>Price</h4>
+              <ToOrderProducts />
+              <h4>Name</h4>
+              <ToOrderProductsByName />
+            </>}
+          </div>
+        </div>
       </div>
       <div className='filter__products-results'>
         <input

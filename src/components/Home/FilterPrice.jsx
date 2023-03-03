@@ -33,10 +33,9 @@ const FilterPrice = ({ setInputPrice }) => {
   };
 
   return (
-    <div className='filter__byprice'>
-      <h4>Price</h4>
+    <div className='container__filter-price'>
       <form className='filter__price' onSubmit={handleSubmit}>
-        <label htmlFor='from'>From </label>
+        <label htmlFor='from'>min </label>
         <div className='slider__value' id='sliderValueFrom'>{sliderValueFrom}</div>
         <input
           type='range'
@@ -45,13 +44,12 @@ const FilterPrice = ({ setInputPrice }) => {
           max='10000'
           step='1'
           value={sliderValueFrom}
-          className='slider'
           onChange={(e) => {
             setSliderValueFrom(parseInt(e.target.value));
           }}
         />
 
-        <label htmlFor='to'>To </label>
+        <label htmlFor='to'>máx </label>
         <div className='slider__value' id='sliderValueTo'>{sliderValueTo}</div>
         <input
           type='range'
@@ -60,7 +58,6 @@ const FilterPrice = ({ setInputPrice }) => {
           max='10000'
           step='1'
           value={sliderValueTo}
-          className='slider'
           onChange={(e) => {
             setSliderValueTo(parseInt(e.target.value));
           }}

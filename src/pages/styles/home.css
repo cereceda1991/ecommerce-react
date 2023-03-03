@@ -12,6 +12,22 @@
   justify-content: flex-start;
   gap: 1rem;
   background-color: #fff;
+  width: 16rem;
+}
+
+.title__hr {
+  background-color: #dcd9d9;
+  height: 2px;
+  border: none;
+}
+
+.filter__prod-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button__down {
+  cursor: pointer;
 }
 
 .filter__prod input {
@@ -27,6 +43,12 @@
   width: 100%;
   justify-content: center;
   min-height: 80vh;
+}
+
+.container__filterorder-products {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1rem;
 }
 
 .products__container {
