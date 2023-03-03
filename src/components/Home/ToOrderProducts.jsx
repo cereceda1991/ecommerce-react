@@ -18,8 +18,8 @@ const ToOrderProducts = () => {
 
   return (
     <select className='order-price' onChange={handleChange}>
-      <option value='ascending'>Ascending</option>
-      <option value='descending'>Descending</option>
+      <option value='ascending'>min - máx</option>
+      <option value='descending'>máx - min</option>
     </select>
   );
 };

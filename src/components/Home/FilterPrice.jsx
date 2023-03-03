@@ -3,7 +3,7 @@ import './styles/filterPrice.css'
 
 const FilterPrice = ({ setInputPrice }) => {
   const [sliderValueFrom, setSliderValueFrom] = useState(0);
-  const [sliderValueTo, setSliderValueTo] = useState(5000);
+  const [sliderValueTo, setSliderValueTo] = useState(10000);
 
   const handleSubmit = (e) => {
     e.preventDefault();
